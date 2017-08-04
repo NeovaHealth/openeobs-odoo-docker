@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="14" failures="0" errors="0" time="2.995032" timestamp="2017-08-04T14:18:24+01:00">
+  <!-- Randomized with seed 6866 -->
+  <properties/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;ca-certificates&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.503277"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;curl&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.171654"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;node-less&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.165212"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;node-clean-css&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.174285"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;python-gevent&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.161752"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;python-pip&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.180024"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;python-pyinotify&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.187413"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;python-renderpm&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.167100"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;python-support&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.195604"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;npm&quot; should not be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.169163"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;wkhtmltox&quot; should be installed" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.160923"/>
+  <testcase classname="spec.8.0.tests.odoo_dependencies_spec" name="Odoo 8.0 Docker image - Dependencies Package &quot;psycogreen&quot; should be installed by &quot;pip&quot;" file="./spec/8.0/tests/odoo_dependencies_spec.rb" time="0.579076"/>
+  <testcase classname="spec.8.0.tests.odoo_spec" name="Odoo 8.0 Docker image - Application User &quot;odoo&quot; should exist" file="./spec/8.0/tests/odoo_spec.rb" time="0.077953"/>
+  <testcase classname="spec.8.0.tests.odoo_spec" name="Odoo 8.0 Docker image - Application File &quot;/etc/odoo/server.cfg&quot; should exist" file="./spec/8.0/tests/odoo_spec.rb" time="0.093417"/>
+</testsuite>
