@@ -15,12 +15,12 @@ describe "Odoo 8.0 Docker image - Application" do
     it { should exist }
   end
 
-  describe file('/usr/local/bin/openerp-server') do
+  describe file('/opt/nh/venv/bin/openerp-server') do
     it { should exist }
     it { should be_executable }
   end
 
-  describe file('/usr/local/bin/odoo.py') do
+  describe file('/opt/nh/venv/bin/odoo.py') do
     it { should exist }
     it { should be_executable }
   end
