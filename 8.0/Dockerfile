@@ -1,58 +1,13 @@
-FROM debian:jessie
-MAINTAINER Odoo S.A. <info@odoo.com>
+FROM 226360623493.dkr.ecr.eu-west-1.amazonaws.com/odoo_base
 
-# Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 RUN set -x; \
-        apt-get update \
-        && apt-get install -y --no-install-recommends \
-            ca-certificates \
-            curl \
-            node-less \
-            node-clean-css \
-            python-gevent \
-            python-pip \
-            python-pyinotify \
-            python-renderpm \
-            virtualenv \
-            python-support \
-            libpq-dev \
-            gcc \
-            python-dev \
-            libxml2-dev \
-            libxslt1-dev \
-            libldap2-dev \
-            libsasl2-dev \
-        && curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
-        && echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
-        && dpkg --force-depends -i wkhtmltox.deb \
-        && apt-get -y install -f --no-install-recommends \
-        && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false npm \
-        && rm -rf /var/lib/apt/lists/* wkhtmltox.deb \
-        && pip install psycogreen==1.0
+    useradd -ms /bin/bash odoo
 
-
-# Install Odoo
-# ENV ODOO_VERSION 8.0
-# ENV ODOO_RELEASE 20170207
-# RUN set -x; \
-#         curl -o odoo.deb -SL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/odoo_${ODOO_VERSION}.${ODOO_RELEASE}_all.deb \
-#         && echo 'cd8c1dc9d2ddf5a538381eed85871a2e343ec8ae odoo.deb' | sha1sum -c - \
-#         && dpkg --force-depends -i odoo.deb \
-#         && dpkg -c odoo.deb > /opt/odoo_files.txt \
-#         && apt-get update \
-#         && apt-get -y install -f --no-install-recommends \
-#         && rm -rf /var/lib/apt/lists/* odoo.deb
 RUN set -x; \
     mkdir /opt/nh \
-    && mkdir /opt/odoo \
-    && mkdir /tmp/odoo \
+    && chown -R odoo /opt/nh \
     && virtualenv /opt/nh/venv \
-    && curl -o /tmp/odoo.tar.gz -SL https://github.com/bjss/odoo/archive/liveobs_1.10.0.tar.gz \
-    && tar -xf /tmp/odoo.tar.gz -C /tmp/odoo \
-    && mv /tmp/odoo/odoo-liveobs_1.10.0/* /opt/odoo
-#    && source /opt/nh/venv/bin/activate \
-RUN /opt/nh/venv/bin/pip install -r /opt/odoo/requirements.txt
-RUN /opt/nh/venv/bin/python /opt/odoo/setup.py install
+    && /opt/nh/venv/bin/pip install https://github.com/bjss/odoo/archive/liveobs_1.10.0.tar.gz
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
@@ -64,11 +19,13 @@ RUN mkdir -p /mnt/extra-addons \
         && chown -R odoo /mnt/extra-addons
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
+RUN chown -R odoo /var/lib/odoo
+
 # Expose Odoo services
 EXPOSE 8069 8071
 
 # Set the default config file
-ENV OPENERP_SERVER /etc/odoo/openerp-server.conf
+ENV OPENERP_SERVER /etc/odoo/server.cfg
 
 # Set default user when running the container
 USER odoo

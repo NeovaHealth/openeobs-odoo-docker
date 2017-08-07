@@ -21,14 +21,18 @@ login:
 	@`aws ecr get-login --no-include-email --region "${REGION}"`
 
 build: clean login
-	cd 8.0 && docker build --pull --no-cache -t ${registry}/odoo:${VERSION} .
+	# cd 8.0 && docker build --pull --no-cache -t ${registry}/odoo:${VERSION} .
+	cd 8.0 && docker build -t ${registry}/odoo:${VERSION} .
 	docker tag ${registry}/odoo:${VERSION} odoo:${VERSION}
 	@cd ..
 
 test:
+	@echo "FROM ${registry}/odoo:${VERSION}\nCMD /bin/bash" > Dockerfile-rspec
+	@docker build -t odoo-rspec:${VERSION} -f Dockerfile-rspec .
 	@bundle install
 	@bundle exec rake spec8
 	@rm -rf vendor
+	@docker rmi odoo-rspec:${VERSION}
 
 publish: login
 	@echo -n "Checking for registry setting ... "
