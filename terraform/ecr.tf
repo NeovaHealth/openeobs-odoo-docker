@@ -3,5 +3,5 @@ resource "aws_ecr_repository" "odoo" {
 }
 
 output "odoo-ecr_url" {
-  value = "${aws_ecr_repository.odoo_base.repository_url}"
+  value = "${aws_ecr_repository.odoo.repository_url}"
 }
