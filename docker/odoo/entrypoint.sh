@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+source /opt/nh/venv/bin/activate
 
 # set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
@@ -13,7 +14,7 @@ DB_ARGS=()
 function check_config() {
     param="$1"
     value="$2"
-    if ! grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then
+    if ! grep -q -E "^\s*\b${param}\b\s*=" "$OPENERP_SERVER" ; then
         DB_ARGS+=("--${param}")
         DB_ARGS+=("${value}")
    fi;
@@ -24,16 +25,16 @@ check_config "db_user" "$USER"
 check_config "db_password" "$PASSWORD"
 
 case "$1" in
-    -- | odoo)
+    -- | openerp-server)
         shift
         if [[ "$1" == "scaffold" ]] ; then
-            exec odoo "$@"
+            exec openerp-server "$@"
         else
-            exec odoo "$@" "${DB_ARGS[@]}"
+            exec openerp-server "$@" "${DB_ARGS[@]}"
         fi
         ;;
     -*)
-        exec odoo "$@" "${DB_ARGS[@]}"
+        exec openerp-server "$@" "${DB_ARGS[@]}"
         ;;
     *)
         exec "$@"
