@@ -1,4 +1,4 @@
-FROM 226360623493.dkr.ecr.eu-west-1.amazonaws.com/odoo_base
+FROM 298801546701.dkr.ecr.eu-west-1.amazonaws.com/odoo_base
 
 RUN set -x; \
     useradd -ms /bin/bash odoo \
