@@ -33,6 +33,9 @@ case "$1" in
             exec openerp-server "$@" "${DB_ARGS[@]}"
         fi
         ;;
+    coverage)
+        exec coverage openerp-server "$@" "${DB_ARGS[@]}"
+        ;;
     -*)
         exec openerp-server "$@" "${DB_ARGS[@]}"
         ;;
