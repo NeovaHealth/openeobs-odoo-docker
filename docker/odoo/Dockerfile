@@ -10,6 +10,7 @@ RUN set -x; \
     && mv /tmp/odoo/odoo-liveobs_1.11.1/* /opt/odoo \
     && cd /opt/odoo/ \
     && /opt/nh/venv/bin/pip install -r requirements.txt \
+    && /opt/nh/venv/bin/pip install coverage==4.4.1 \
     && /opt/nh/venv/bin/python setup.py install
 
 # Copy entrypoint script and Odoo configuration file
@@ -22,6 +23,7 @@ EXPOSE 8069 8071
 
 # Set the default config file
 ENV OPENERP_SERVER /etc/odoo/server.cfg
+ENV COVERAGE_FILE /opt/nh/.coverage
 
 # Set default user when running the container
 USER odoo

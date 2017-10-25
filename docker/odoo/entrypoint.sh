@@ -33,6 +33,10 @@ case "$1" in
             exec openerp-server "$@" "${DB_ARGS[@]}"
         fi
         ;;
+    coverage)
+        shift
+        exec coverage run /opt/odoo/odoo.py "$@" "${DB_ARGS[@]}"
+        ;;
     -*)
         exec openerp-server "$@" "${DB_ARGS[@]}"
         ;;
