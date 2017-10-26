@@ -37,6 +37,9 @@ case "$1" in
         shift
         exec coverage run /opt/odoo/odoo.py "$@" "${DB_ARGS[@]}"
         ;;
+    collect-coverage)
+        exec coverage xml -o /opt/nh/unit_test_coverage.xml
+        ;;
     -*)
         exec openerp-server "$@" "${DB_ARGS[@]}"
         ;;
