@@ -1,5 +1,5 @@
 require "serverspec"
-require "serverspec-extended-types"
+require "serverspec_extended_types"
 require "docker"
 
 def image
