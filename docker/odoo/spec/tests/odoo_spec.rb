@@ -25,4 +25,7 @@ describe "Odoo 8.0 Docker image - Application" do
     it { should be_executable }
   end
 
+  describe virtualenv('/opt/nh/venv') do
+    its(:pip_freeze) { should include('psycopg2' => '2.7.1') }
+  end
 end
