@@ -19,3 +19,5 @@ puppet/.librarian
 puppet/.out
 puppet/modules
 puppet/.rake_tasks~
+
+.idea/
