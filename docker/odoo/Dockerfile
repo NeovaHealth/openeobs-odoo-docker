@@ -5,9 +5,9 @@ RUN set -x; \
     && mkdir -p /opt/nh /opt/odoo /tmp/odoo /var/lib/odoo \
     && chown -R odoo /opt/nh /var/lib/odoo \
     && virtualenv /opt/nh/venv --system-site-packages \
-    && curl -o /tmp/odoo.tar.gz -SL https://github.com/bjss/odoo/archive/liveobs_1.11.2.tar.gz \
+    && curl -o /tmp/odoo.tar.gz -SL https://github.com/bjss/odoo/archive/liveobs_updated-to-latest-upstream-8.0.tar.gz \
     && tar -xf /tmp/odoo.tar.gz -C /tmp/odoo \
-    && mv /tmp/odoo/odoo-liveobs_1.11.2/* /opt/odoo \
+    && mv /tmp/odoo/odoo-liveobs_updated-to-latest-upstream-8.0/* /opt/odoo \
     && cd /opt/odoo/ \
     && /opt/nh/venv/bin/pip install -r requirements.txt \
     && /opt/nh/venv/bin/pip install coverage==4.4.1 \
