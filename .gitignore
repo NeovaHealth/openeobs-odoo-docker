@@ -2,7 +2,6 @@
 **/*.swp
 **/vendor
 **/ubuntu-*-cloudimg-console.log
-**/Dockerfile-rspec
 
 .vagrant
 

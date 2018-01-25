@@ -27,10 +27,9 @@ build: clean login
 	@cd ..
 
 test:
-	@echo "FROM ${registry}/odoo:${ODOO_BRANCH}\nCMD /bin/bash" > Dockerfile-rspec
 	@docker build -t odoo-rspec:${ODOO_BRANCH} -f Dockerfile-rspec .
 	@bundle install
-	@bundle exec rake spec
+	ODOO_BRANCH=${ODOO_BRANCH} bundle exec rake spec
 	@rm -rf vendor
 	@docker rmi odoo-rspec:${ODOO_BRANCH}
 
