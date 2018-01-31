@@ -1,0 +1,2 @@
+# Containers created from this image fail to start if entrypoint.sh has CRLF
+* test eol=lf
