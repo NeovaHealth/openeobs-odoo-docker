@@ -1,6 +1,11 @@
-About this Repo
-======
+# LiveObs Odoo Docker
+This repo is responsible for building and publishing a vanilla Odoo Docker 
+image to our ECR repository which is then built upon to create LiveObs in our 
+CI pipeline.
 
-This is the Git repo of the official Docker image for [Odoo](https://registry.hub.docker.com/_/odoo/). See the Hub page for the full readme on how to use the Docker image and for information regarding contributing and issues.
+1. `cd docker/odoo`
+1. `make build registry=<LIVEOBS_ECS_REGISTRY>`
 
-The full readme is generated over in [docker-library/docs](https://github.com/docker-library/docs), specifically in [docker-library/docs/odoo](https://github.com/docker-library/docs/tree/master/odoo).
+# LiveObs-specific Python Dependencies
+In the Dockerfile you will see that we append our own dependencies to Odoo's 
+`requirements.txt` before installing them.

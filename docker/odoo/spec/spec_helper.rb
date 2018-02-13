@@ -3,8 +3,6 @@ require "serverspec_extended_types"
 require "docker"
 
 def image
-  label = ENV['GO_PIPELINE_LABEL'] || 1
-  counter = ENV['GO_STAGE_COUNTER'] || 1
-  version = "#{label}-#{counter}"
+  version = ENV['ODOO_BRANCH']
   "odoo-rspec:#{version}"
 end

@@ -2,7 +2,6 @@
 **/*.swp
 **/vendor
 **/ubuntu-*-cloudimg-console.log
-**/Dockerfile-rspec
 
 .vagrant
 
@@ -19,3 +18,5 @@ puppet/.librarian
 puppet/.out
 puppet/modules
 puppet/.rake_tasks~
+
+.idea/

@@ -1,0 +1,6 @@
+setuptools==2.2
+invoke==0.11.1
+faker==0.7.17
+BeautifulSoup
+ERPPeek==1.6.1
+coverage==4.4.1
